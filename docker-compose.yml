@@ -1,0 +1,23 @@
+services:
+  iopaint:
+    build: .
+    restart: unless-stopped
+    shm_size: 2gb
+    network_mode: host
+    ports:
+      - 8080:8080
+    devices:
+      - /dev/dri:/dev/dri
+    volumes:
+      - ~/Docker/iopaint/cache:/home/iopaint/.cache/
+      - ~/Docker/iopaint/images:/home/iopaint/images
+    entrypoint:
+      "iopaint start --model lama --device=cpu --port=8080 --host=0.0.0.0 \
+        --enable-realesrgan --realesrgan-device cpu \
+        --enable-gfpgan --gfpgan-device cpu \
+        --enable-restoreformer --restoreformer-device cpu \
+        --enable-remove-bg \
+        --enable-interactive-seg \
+        --interactive-seg-model=vit_l \
+        --input=${IOP_IMAGES}/input \
+        --output-dir=${IOP_IMAGES}/output"
