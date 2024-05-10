@@ -12,7 +12,7 @@ This repository allows you to easily set up a local instance of [IOPaint](https:
 1. Clone this repository to your local machine:
 
     ```bash
-    git clone https://github.com/your-username/iopaint-docker.git
+    git clone https://github.com/Schwitzd/docker-iopaint.git
     ```
 
 2. Navigate to the cloned directory:
