@@ -11,23 +11,29 @@ This repository allows you to easily set up a local instance of [IOPaint](https:
 
 1. Clone this repository to your local machine:
 
-    ```bash
+    ```sh
     git clone https://github.com/Schwitzd/docker-iopaint.git
     ```
 
 2. Navigate to the cloned directory:
 
-    ```bash
+    ```sh
     cd docker-iopaint
     ```
 
-3. Build and run the Docker container using docker-compose:
+3. Build the image
 
-    ```bash
-    docker-compose up --build -d
+    ```sh
+    docker buildx build -t docker-iopaint .
     ```
 
-4. Once the container is up and running, you can access IOPaint at `http://localhost:8080` in your web browser.
+4. Run the Docker container using docker-compose:
+
+    ```sh
+    docker-compose up -d
+    ```
+
+5. Once the container is up and running, you can access IOPaint at `http://localhost:8080` in your web browser.
 
 ## Configuration
 

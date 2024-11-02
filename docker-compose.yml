@@ -1,6 +1,6 @@
 services:
-  iopaint:
-    build: .
+  ioservice:
+    image: docker-iopaint:latest
     restart: unless-stopped
     shm_size: 2gb
     network_mode: host
@@ -11,6 +11,8 @@ services:
     volumes:
       - ~/Docker/iopaint/cache:/home/iopaint/.cache/
       - ~/Docker/iopaint/images:/home/iopaint/images
+    environment:
+      - IOP_IMAGES=/home/iopaint/images
     entrypoint:
       "iopaint start --model lama --device=cpu --port=8080 --host=0.0.0.0 \
         --enable-realesrgan --realesrgan-device cpu \
